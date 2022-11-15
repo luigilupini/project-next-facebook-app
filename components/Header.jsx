@@ -9,6 +9,7 @@ import {
   UserGroupIcon,
   ViewGridIcon,
 } from "@heroicons/react/solid";
+
 import {
   FlagIcon,
   PlayIcon,
@@ -16,6 +17,8 @@ import {
   ShoppingCartIcon,
 } from "@heroicons/react/outline";
 import HeaderIcon from "./HeaderIcon";
+
+import { signOut, useSession } from "next-auth/client";
 
 /* https://nextjs.org/docs/basic-features/image-optimization: 
 A Image component `next/image` is an extension of the HTML <img> element evolved
@@ -34,6 +37,7 @@ are a few guidelines to keep in mind, use className or style, not styled-jsx. In
 most cases, we recommend using `className` prop. You can also use a style prop.
 You cannot use styled-jsx because it's scoped to the current component. */
 function Header() {
+  const [session] = useSession();
   return (
     <div className="sticky top-0 z-50 flex items-center bg-white p-2 shadow-md lg:px-5">
       {/* Left/Logo */}
@@ -67,7 +71,17 @@ function Header() {
       </div>
       {/* Right/Contacts */}
       <div className="flex items-center justify-end gap-1 sm:space-x-1">
-        <p className="whitespace-nowrap pr-3 font-semibold">Luigi Lupini</p>
+        <Image
+          className="cursor-pointer rounded-full"
+          onClick={signOut}
+          src={session.user.image}
+          width={40}
+          height={40}
+          alt="profile"
+        />
+        <p className="whitespace-nowrap pr-2 font-semibold text-gray-700">
+          {session.user.name}
+        </p>
         {/* See globals.css styles for icon component layer style */}
         <ViewGridIcon className="icon" />
         <ChatIcon className="icon" />
