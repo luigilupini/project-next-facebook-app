@@ -42,11 +42,18 @@ function Header() {
     <div className="sticky top-0 z-50 flex items-center bg-white p-2 shadow-md lg:px-5">
       {/* Left/Logo */}
       <div className="flex items-center">
-        <Image src={logo} width={40} height={40} alt="logo" priority="100" />
+        <Image
+          src={logo}
+          width={40}
+          height={40}
+          alt="logo"
+          priority="100"
+          className="shadow"
+        />
         <div className="ml-2 flex items-center rounded-full bg-gray-100 p-2">
           <SearchIcon className="h-6 text-gray-600" />
           <input
-            className="ml-2 hidden flex-shrink items-center bg-transparent placeholder-gray-500 outline-none md:inline-flex"
+            className="ml-2 hidden flex-shrink items-center bg-transparent text-sm font-normal placeholder-gray-400 outline-none md:inline-flex"
             type="text"
             placeholder="Search Facebook"
           />
@@ -54,7 +61,7 @@ function Header() {
       </div>
       {/* Center/Feed */}
       <div className="flex flex-grow justify-center">
-        <div className="flex space-x-6 md:space-x-2 ">
+        <div className="flex space-x-6">
           {/* When you pass a component as a parameter "prop" directly you pass
           it un-instantiated & instantiate it by retrieving it as `props`. This
           is a more "natural way" of passing down components, which will then be
@@ -79,7 +86,7 @@ function Header() {
           height={40}
           alt="profile"
         />
-        <p className="whitespace-nowrap pr-2 font-semibold text-gray-700">
+        <p className="hidden whitespace-nowrap pr-2 font-semibold text-gray-700 lg:inline-flex">
           {session.user.name}
         </p>
         {/* See globals.css styles for icon component layer style */}
