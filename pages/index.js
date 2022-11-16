@@ -2,7 +2,7 @@ import Head from "next/head";
 import Header from "../components/Header";
 import Login from "../components/Login";
 import SideBar from "../components/SideBar";
-// import Feed from "../components/Feed";
+import Feed from "../components/Feed";
 import { getSession, signOut } from "next-auth/client";
 /* # Add React Hook:
 The `useSession` React Hook in the `next-auth` client is an easy way to check if
@@ -20,7 +20,7 @@ export default function Home({ session }) {
       <Header />
       <main className="flex">
         <SideBar />
-        {/* <Feed /> */}
+        <Feed />
         {/* <Widgets /> */}
       </main>
     </div>
