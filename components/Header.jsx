@@ -42,14 +42,7 @@ function Header() {
     <div className="sticky top-0 z-50 flex items-center bg-white p-2 shadow-md lg:px-5">
       {/* Left/Logo */}
       <div className="flex items-center">
-        <Image
-          src={logo}
-          width={40}
-          height={40}
-          alt="logo"
-          priority="100"
-          className="shadow"
-        />
+        <Image src={logo} width={40} height={40} alt="logo" priority="100" />
         <div className="ml-2 flex items-center rounded-full bg-gray-100 p-2">
           <SearchIcon className="h-6 text-gray-600" />
           <input

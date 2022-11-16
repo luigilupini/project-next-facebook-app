@@ -89,7 +89,7 @@ export default function InputBox() {
   const removeMedia = () => {
     setImageToPost(null);
   };
-  console.log(imageToPost);
+  // console.log(imageToPost);
   return (
     <div className="mt-6 rounded-2xl bg-white p-2 font-medium text-gray-500 shadow-md">
       <div className="flex items-center space-x-4 p-4">

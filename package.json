@@ -13,10 +13,12 @@
     "eslint": "8.27.0",
     "eslint-config-next": "13.0.3",
     "firebase": "^8.5.0",
+    "moment": "^2.29.4",
     "next": "13.0.3",
     "next-auth": "3",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-firebase-hooks": "^3.0.4"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.13",

@@ -9,7 +9,7 @@ The `useSession` React Hook in the `next-auth` client is an easy way to check if
 someone is signed in. Use the hook from anywhere in your application. */
 
 export default function Home({ session }) {
-  console.log(session);
+  // console.log(session);
   if (!session) return <Login />;
   return (
     <div>
