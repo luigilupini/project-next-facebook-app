@@ -18,7 +18,8 @@
     "next-auth": "3",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-firebase-hooks": "^3.0.4"
+    "react-firebase-hooks": "^3.0.4",
+    "tailwind-scrollbar-hide": "^1.1.7"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.13",

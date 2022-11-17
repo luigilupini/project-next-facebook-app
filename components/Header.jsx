@@ -71,15 +71,20 @@ function Header() {
       </div>
       {/* Right/Contacts */}
       <div className="flex items-center justify-end gap-1 sm:space-x-1">
-        <Image
-          className="cursor-pointer rounded-full"
-          onClick={signOut}
-          src={session.user.image}
-          width={40}
-          height={40}
-          alt="profile"
-        />
-        <p className="hidden whitespace-nowrap pr-2 font-semibold text-gray-700 lg:inline-flex">
+        <div className="group relative">
+          <Image
+            className="cursor-pointer rounded-full"
+            onClick={signOut}
+            src={session.user.image}
+            width={40}
+            height={40}
+            alt="profile"
+          />
+          <p className="absolute animate-bounce rounded-md bg-red-200 p-2 text-center text-xs text-red-600 opacity-0 group-hover:opacity-80">
+            Logout?
+          </p>
+        </div>
+        <p className="hidden whitespace-nowrap pr-2 text-sm font-semibold text-gray-700 lg:inline-flex">
           {session.user.name}
         </p>
         {/* See globals.css styles for icon component layer style */}

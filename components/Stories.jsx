@@ -40,7 +40,7 @@ function StoryCard({ name, src, profile }) {
       hover:scale-105 hover:animate-pulse md:h-20 md:w-20 lg:h-56 lg:w-32"
     >
       <Image
-        className="absolute top-10 z-50 h-10 w-10 rounded-full border-2 object-cover opacity-0 shadow lg:opacity-100"
+        className="absolute top-10 z-40 h-10 w-10 rounded-full border-2 object-cover opacity-0 shadow lg:opacity-100"
         src={profile}
         width={100}
         height={100}
