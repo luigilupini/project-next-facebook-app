@@ -19,7 +19,7 @@ function Post({ key, name, message, email, timestamp, image, postImage }) {
             </p>
           </div>
         </div>
-        <p className="pt-4 text-sm lg:text-base">{message}</p>
+        <p className="pt-4 text-sm lg:text-sm">{message}</p>
       </div>
       {postImage && (
         <div className="relative h-56 overflow-hidden bg-white md:h-64 lg:h-80">
@@ -45,14 +45,13 @@ function Post({ key, name, message, email, timestamp, image, postImage }) {
   );
 }
 
-export default function Posts() {
-  const [value, loading, error] = useCollection(
+export default function Posts({ posts: serverSidePosts }) {
+  // Option #1: client-side rendering (CSR):
+  const [clientSidePosts] = useCollection(
     db.collection("posts").orderBy("timestamp", "desc")
   );
-  if (loading) return <h1>Loading...</h1>;
-  if (error) return console.log(error);
-  else
-    return value.docs.map((post) => (
+  if (clientSidePosts) {
+    return clientSidePosts.docs.map((post) => (
       <Post
         key={post.id}
         name={post.data().name}
@@ -63,4 +62,19 @@ export default function Posts() {
         postImage={post.data().postImage}
       />
     ));
+  }
+  // Option #2: server-side rendering (SSR):
+  if (serverSidePosts) {
+    return serverSidePosts.map((post) => (
+      <Post
+        key={post.id}
+        name={post.name}
+        message={post.message}
+        email={post.email}
+        timestamp={post.timestamp}
+        image={post.image}
+        postImage={post.postImage}
+      />
+    ));
+  }
 }

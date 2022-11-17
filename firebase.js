@@ -3,12 +3,12 @@ import "firebase/storage";
 
 // Your web app's Firebase configuration
 const config = {
-  apiKey: "AIzaSyA_Tuey40WgMsgAFauHq_OAX1iMZLzX0VQ",
-  authDomain: "next-facebook-91593.firebaseapp.com",
-  projectId: "next-facebook-91593",
-  storageBucket: "next-facebook-91593.appspot.com",
-  messagingSenderId: "217744943304",
-  appId: "1:217744943304:web:a2f24429f0d5a97c161dfd",
+  apiKey: process.env.NEXT_PUBLIC_API_KEY,
+  authDomain: process.env.NEXT_PUBLIC_AUTH_DOMAIN,
+  projectId: process.env.NEXT_PUBLIC_PROJECT_ID,
+  storageBucket: process.env.NEXT_PUBLIC_STORAGE_BUCKET,
+  messagingSenderId: process.env.NEXT_PUBLIC_MESSAGING_SENDER_ID,
+  appId: process.env.NEXT_PUBLIC_APP_ID,
 };
 
 const app = !firebase.apps.length

@@ -4,12 +4,13 @@ import Image from "next/image";
 
 const contacts = [
   { src: "/users/jeff_bezos_profile.jpeg", name: "Jeff Bezoz" },
-  { src: "/users/elon_musk_profile.jpg", name: "Elon Musk" },
+  { src: "/users/elon_musk_profile.webp", name: "Elon Musk" },
   { src: "/users/bill_gates_profile.jpg", name: "Bill Gates" },
   { src: "/users/mark_z_profile.jpg", name: "Mark Zuckerberg" },
   { src: "/users/james_bond_profile.jpeg", name: "James Bond" },
   { src: "/users/the_queen_profile.webp", name: "The Queen" },
   { src: "/users/charles_profile.jpeg", name: "Charles Leclerc" },
+  { src: "/users/fernando-profile.jpeg", name: "Fernando Alonso" },
 ];
 
 function Contact({ name, src }) {

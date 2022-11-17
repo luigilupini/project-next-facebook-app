@@ -7,11 +7,12 @@ import Widgets from "../components/Widgets";
 
 // Used in our `getServerSideProps` function:
 import { getSession } from "next-auth/client";
+import { db } from "../firebase";
 
 /* # Add React Hook:
 The `useSession` React Hook in the `next-auth` client is an easy way to check if
 someone is signed in. Use the hook from anywhere in your application. */
-export default function Home({ session }) {
+export default function Home({ session, posts }) {
   // console.log(session);
   if (!session) return <Login />;
   return (
@@ -23,7 +24,7 @@ export default function Home({ session }) {
       <Header />
       <main className="flex bg-gray-100">
         <SideBar />
-        <Feed />
+        <Feed posts={posts} />
         <Widgets />
       </main>
     </div>
@@ -79,5 +80,19 @@ https://nextjs.org/docs/basic-features/data-fetching/get-server-side-props */
 export async function getServerSideProps(context) {
   // Get the user authentication session/state:
   const session = await getSession(context);
-  return { props: { session } };
+  // Pre-render `posts` from server instead of async fetch from Posts component:
+  const postsRef = await db
+    .collection("posts")
+    .orderBy("timestamp", "desc")
+    .get();
+  const docs = postsRef.docs.map((post) => {
+    return {
+      id: post.id,
+      ...post.data(),
+      timestamp: null,
+    };
+  });
+  return {
+    props: { session: session, posts: docs },
+  };
 }
